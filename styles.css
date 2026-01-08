@@ -637,6 +637,8 @@ button {
     .cart-sidebar {
         width: 100%;
         /* Full width on mobile */
+        padding: 1rem;
+        /* Reduce padding on mobile to save space */
     }
 
     .cart-sidebar.open {
@@ -860,6 +862,9 @@ button {
     width: 400px;
     max-width: 100%;
     height: 100vh;
+    /* Fallback */
+    height: 100dvh;
+    /* Dynamic viewport height for mobile browsers */
     background: var(--color-card-bg);
     border-left: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 2500;
@@ -869,6 +874,8 @@ button {
     display: flex;
     flex-direction: column;
     padding: 2rem;
+    overflow: hidden;
+    /* Ensure parent doesn't scroll, only children */
 }
 
 .cart-sidebar.open {
@@ -914,6 +921,10 @@ button {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    min-height: 0;
+    /* Important for flex child scrolling */
+    padding-bottom: 1rem;
+    /* Space before footer */
 }
 
 .empty-cart-msg {
