@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EUKARIAE | Ciencia y Arte</title>
+    <meta name="description"
+        content="EUKARIAE - Arte, ciencia y naturaleza. Tienda online de ropa y accesorios inspirados en la biodiversidad.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Icons (Phosphor Icons for sleek look) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">EUKARIAE</div>
+        <button class="icon-btn mobile-menu-btn" aria-label="Menú" style="display: none;"><i
+                class="ph ph-list"></i></button>
+        <ul class="nav-links">
+            <li><a href="#colecciones">Colecciones</a></li>
+            <li><a href="#catalogo">Catálogo</a></li>
+            <li><a href="#historia">Historia</a></li>
+            <li><a href="#manifiesto">Manifiesto</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="icon-btn" aria-label="Carrito" style="position: relative;">
+                <i class="ph ph-bag"></i>
+                <span id="cart-count" class="cart-badge">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Arte, ciencia y biodiversidad convertidos en prendas que cuentan historias.</h1>
+            <a href="#colecciones" class="btn btn-primary">Explorar colección</a>
+        </div>
+        <div class="hero-image-container">
+            <img src="assets/images/hero.png" alt="Eukariae Editorial" class="hero-img">
+        </div>
+    </header>
+
+    <!-- 2. Brand DNA -->
+    <section class="dna">
+        <div class="dna-block">
+            <i class="ph ph-butterfly dna-icon"></i>
+            <h3>Inspiración natural</h3>
+            <p>Inspiración en la fauna y flora latinoamericana.</p>
+        </div>
+        <div class="dna-block">
+            <i class="ph ph-flask dna-icon"></i>
+            <h3>Lenguaje científico</h3>
+            <p>Cada diseño nace del conocimiento y la observación.</p>
+        </div>
+        <div class="dna-block">
+            <i class="ph ph-pencil-circle dna-icon"></i>
+            <h3>Arte ilustrado</h3>
+            <p>Ilustraciones originales con identidad propia.</p>
+        </div>
+    </section>
+
+    <!-- 3. Collections (Featured) -->
+    <section id="colecciones" class="collections">
+        <h2 class="section-title">Destacados</h2>
+        <!-- Existing grid... -->
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <article class="product-card" data-id="1" data-category="ropa">
+                <div class="product-image">
+                    <img src="assets/images/tshirt.png" alt="Camiseta Escarabajo">
+                    <div class="overlay"><span>Ver Detalle</span></div>
+                </div>
+                <div class="product-info">
+                    <h3>Camiseta Dynastinae</h3>
+                    <p class="scientific-name">Inspirado en el escarabajo rinoceronte</p>
+                    <span class="price">$120.000</span>
+                </div>
+            </article>
+            <!-- Product 2 -->
+            <article class="product-card" data-id="2" data-category="accesorios">
+                <div class="product-image">
+                    <img src="assets/images/totebag.png" alt="Totebag Botánica">
+                    <div class="overlay"><span>Ver Detalle</span></div>
+                </div>
+                <div class="product-info">
+                    <h3>Totebag Herbario</h3>
+                    <p class="scientific-name">Basado en plantas medicinales</p>
+                    <span class="price">$65.000</span>
+                </div>
+            </article>
+            <!-- Product 3 -->
+            <article class="product-card" data-id="3" data-category="papeleria">
+                <div class="product-image">
+                    <img src="assets/images/notebook.png" alt="Cuaderno Nautilus">
+                    <div class="overlay"><span>Ver Detalle</span></div>
+                </div>
+                <div class="product-info">
+                    <h3>Bitácora Nautilus</h3>
+                    <p class="scientific-name">Geometría sagrada y naturaleza</p>
+                    <span class="price">$45.000</span>
+                </div>
+            </article>
+            <!-- Product 4 -->
+            <article class="product-card" data-id="4" data-category="accesorios">
+                <div class="product-image">
+                    <img src="assets/images/backpack.png" alt="Mochila Explorador">
+                    <div class="overlay"><span>Ver Detalle</span></div>
+                </div>
+                <div class="product-info">
+                    <h3>Mochila Expedición</h3>
+                    <p class="scientific-name">Diseñada para la exploración de campo</p>
+                    <span class="price">$280.000</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- NEW: Full Catalog Section -->
+    <section id="catalogo" class="catalog-section" style="padding: 4rem 6rem; background: var(--color-bg);">
+        <h2 class="section-title">Catálogo Completo</h2>
+
+        <!-- Filters -->
+        <div class="catalog-filters"
+            style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap;">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="ropa">Ropa</button>
+            <button class="filter-btn" data-filter="accesorios">Accesorios</button>
+            <button class="filter-btn" data-filter="papeleria">Papelería</button>
+        </div>
+
+        <div class="product-grid" id="catalog-grid">
+            <!-- Reusing assets for diverse catalog items -->
+
+            <!-- Item 5: T-shirt Variant -->
+            <article class="product-card" data-id="5" data-category="ropa">
+                <div class="product-image">
+                    <img src="assets/images/hero.png" style="object-position: top;" alt="Camiseta Fern">
+                    <div class="overlay"><span>Ver Detalle</span></div>
+                </div>
+                <div class="product-info">
+                    <h3>Camiseta Pteridophyta</h3>
+                    <p class="scientific-name">Helechos arborescentes</p>
+                    <span class="price">$115.000</span>
+                </div>
+            </article>
+
+            <!-- Item 6: Notebook Variant -->
+            <article class="product-card" data-id="6" data-category="papeleria">
+                <div class="product-image">
+                    <img src="assets/images/notebook.png" style="filter: hue-rotate(45deg);" alt="Cuaderno Estelar">
+                    <div class="overlay"><span>Ver Detalle</span></div>
+                </div>
+                <div class="product-info">
+                    <h3>Bitácora Cosmos</h3>
+                    <p class="scientific-name">Cartografía estelar</p>
+                    <span class="price">$45.000</span>
+                </div>
+            </article>
+
+            <!-- Item 7: Totebag Variant -->
+            <article class="product-card" data-id="7" data-category="accesorios">
+                <div class="product-image">
+                    <img src="assets/images/totebag.png" style="filter: sepia(0.5);" alt="Totebag Fungi">
+                    <div class="overlay"><span>Ver Detalle</span></div>
+                </div>
+                <div class="product-info">
+                    <h3>Totebag Fungi</h3>
+                    <p class="scientific-name">Reino de los hongos</p>
+                    <span class="price">$65.000</span>
+                </div>
+            </article>
+
+            <!-- Item 8: Backpack Variant -->
+            <article class="product-card" data-id="8" data-category="accesorios">
+                <div class="product-image">
+                    <img src="assets/images/backpack.png" style="filter: brightness(0.8);" alt="Mochila Negra">
+                    <div class="overlay"><span>Ver Detalle</span></div>
+                </div>
+                <div class="product-info">
+                    <h3>Mochila Urban Black</h3>
+                    <p class="scientific-name">Edición nocturna</p>
+                    <span class="price">$290.000</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 4. Story Section -->
+    <section id="historia" class="story">
+        <div class="story-content">
+            <h2 class="section-title">La Ciencia del Arte</h2>
+            <p class="story-text">Cada ilustración nace del estudio riguroso de la biodiversidad. Transformamos el
+                conocimiento biológico en una identidad visual que se viste, llevando la estética del museo a las
+                calles.</p>
+        </div>
+        <div class="story-image">
+            <!-- Ideally a detail shot, reusing hero or similar for now or a solid color block with pattern for abstract feel if no image -->
+            <div class="story-placeholder"></div>
+        </div>
+    </section>
+
+    <!-- 5. Manifesto -->
+    <section id="manifiesto" class="manifesto">
+        <div class="manifesto-content">
+            <h2>No vendemos solo ropa.</h2>
+            <p>Vendemos conocimiento, identidad y respeto por la naturaleza.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-col">
+            <h4>EUKARIAE</h4>
+            <p>Est. 2026</p>
+        </div>
+        <div class="footer-col">
+            <a href="#">Instagram</a>
+            <a href="#">Contacto</a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Eukariae. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Product Modal -->
+    <div class="modal-backdrop" id="productModal">
+        <div class="modal-content">
+            <button class="icon-btn close-modal" aria-label="Cerrar"><i class="ph ph-x"></i></button>
+            <img src="" alt="" class="modal-img" id="modalImg">
+            <div class="modal-details">
+                <h3 id="modalTitle">Titulo</h3>
+                <p class="scientific-name" id="modalSciName">Scientific Name</p>
+                <p id="modalDesc" style="margin: 1rem 0; color: var(--color-text-muted);">Descripción detallada del
+                    producto.</p>
+                <div style="font-size: 1.5rem; margin-bottom: 2rem;" id="modalPrice">$000</div>
+                <button class="btn">Añadir al Carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-backdrop" id="cartBackdrop"></div>
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Tu Carrito</h2>
+            <button class="icon-btn close-cart"><i class="ph ph-x"></i></button>
+        </div>
+        <div class="cart-items" id="cartItemsContainer">
+            <!-- Items injected by JS -->
+            <div class="empty-cart-msg">Tu carrito está vacío.</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cartTotalValue">$0</span>
+            </div>
+            <button class="btn" style="width: 100%; background: var(--color-text); color: var(--color-bg);">Iniciar
+                Compra</button>
+        </div>
+    </aside>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>

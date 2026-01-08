@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EUKARIAE | Checkout</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Navbar (Simplified for Checkout) -->
+    <nav class="navbar" style="position: relative; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <div class="logo"><a href="index.html">EUKARIAE</a></div>
+        <div style="font-size: 0.9rem; letter-spacing: 1px; color: var(--color-text-muted);">Checkout Seguro</div>
+    </nav>
+
+    <div class="checkout-container">
+        <div class="checkout-grid">
+
+            <!-- Left: Form -->
+            <div class="checkout-form-col">
+                <h2 style="margin-bottom: 2rem;">Información de Envío</h2>
+                <form id="checkout-form">
+                    <div class="form-group">
+                        <label>Correo Electrónico</label>
+                        <input type="email" required placeholder="tu@email.com">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" required placeholder="Juan">
+                        </div>
+                        <div class="form-group">
+                            <label>Apellidos</label>
+                            <input type="text" required placeholder="Pérez">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Dirección</label>
+                        <input type="text" required placeholder="Calle 123 # 45-67">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Ciudad</label>
+                            <input type="text" required placeholder="Bogotá">
+                        </div>
+                        <div class="form-group">
+                            <label>Código Postal</label>
+                            <input type="text" placeholder="110111">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Teléfono</label>
+                        <input type="tel" required placeholder="+57 300 123 4567">
+                    </div>
+
+                    <h2 style="margin: 2rem 0 1rem;">Pago</h2>
+                    <div class="payment-methods">
+                        <div class="payment-option selected" data-method="card">
+                            <i class="ph ph-credit-card"></i> Tarjeta de Crédito
+                        </div>
+                        <div class="payment-option" data-method="pse">
+                            <i class="ph ph-bank"></i> PSE / Transferencia
+                        </div>
+                    </div>
+
+                    <!-- Card Details Section -->
+                    <div id="payment-card-details">
+                        <div class="form-group">
+                            <label>Nombre en la Tarjeta</label>
+                            <input type="text" required placeholder="Como aparece en la tarjeta">
+                        </div>
+                        <div class="form-group">
+                            <label>Número de Tarjeta</label>
+                            <input type="text" id="card-number" required placeholder="0000 0000 0000 0000"
+                                maxlength="19">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Expiración (MM/AA)</label>
+                                <input type="text" id="card-expiry" required placeholder="MM/AA" maxlength="5">
+                            </div>
+                            <div class="form-group">
+                                <label>CVC</label>
+                                <input type="text" required placeholder="123" maxlength="4">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PSE Section (Hidden by default) -->
+                    <div id="payment-pse-details"
+                        style="display: none; background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 4px; text-align: center;">
+                        <i class="ph ph-bank"
+                            style="font-size: 3rem; margin-bottom: 1rem; color: var(--color-accent);"></i>
+                        <p style="margin-bottom: 1rem;">Serás redirigido a la pasarela de pagos segura de tu banco para
+                            completar la transacción.</p>
+                        <select
+                            style="width: 100%; padding: 0.8rem; background: var(--color-bg); color: var(--color-white); border: 1px solid rgba(255,255,255,0.2);">
+                            <option value="">Selecciona tu banco</option>
+                            <option value="bancolombia">Bancolombia</option>
+                            <option value="davivienda">Davivienda</option>
+                            <option value="bbva">BBVA</option>
+                            <option value="nequi">Nequi</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary"
+                        style="width: 100%; margin-top: 2rem; background: var(--color-text); color: var(--color-bg);">Confirmar
+                        Pedido</button>
+                    <a href="index.html"
+                        style="display: block; text-align: center; margin-top: 1rem; font-size: 0.9rem; text-decoration: underline;">Volver
+                        a la tienda</a>
+                </form>
+            </div>
+
+            <!-- Right: Summary -->
+            <aside class="checkout-summary-col">
+                <div class="summary-card">
+                    <h3>Resumen del Pedido</h3>
+                    <div id="checkout-summary-items" class="summary-items">
+                        <!-- Injected JS -->
+                    </div>
+                    <div class="summary-total">
+                        <div class="row">
+                            <span>Subtotal</span>
+                            <span id="checkout-subtotal">Calculando...</span>
+                        </div>
+                        <div class="row">
+                            <span>Envío</span>
+                            <span>Gratis</span>
+                        </div>
+                        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 1rem 0;">
+                        <div class="row total">
+                            <span>Total</span>
+                            <span id="checkout-total">$0</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="success-backdrop" id="successBackdrop"></div>
+    <div class="success-modal" id="successModal">
+        <div class="success-icon">
+            <i class="ph ph-check-circle"></i>
+        </div>
+        <h2>¡Gracias por tu compra!</h2>
+        <p>Tu pedido ha sido procesado exitosamente. Hemos enviado una confirmación a tu correo electrónico.</p>
+        <button class="btn" id="successCloseBtn">Volver a la Tienda</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
