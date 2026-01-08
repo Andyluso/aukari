@@ -447,71 +447,74 @@ button {
     color: #444;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-    .h1 {
+/* Responsive Design */
+
+/* Tablet & Smaller Laptops (max-width: 1024px) */
+@media (max-width: 1024px) {
+    :root {
+        --space-xl: 6rem;
+        --space-lg: 3rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
         font-size: 2.5rem;
-    }
-
-    .hero {
-        flex-direction: column-reverse;
-        /* Image top on mobile logic or bottom? Let's stack naturally */
-        flex-direction: column;
-        height: auto;
-        min-height: 100vh;
-    }
-
-    .hero-content {
-        padding: 4rem 2rem;
-        text-align: center;
-        flex: 0 0 auto;
-    }
-
-    .hero-image-container {
-        height: 50vh;
-    }
-
-    .dna {
-        grid-template-columns: 1fr;
-    }
-
-    .dna-block {
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        padding: 2rem;
-    }
-
-    .story {
-        flex-direction: column;
-    }
-
-    .story-content {
-        padding: 4rem 2rem;
-    }
-
-    .story-image {
-        height: 40vh;
-    }
-
-    .logo {
-        margin-bottom: 0;
     }
 
     .navbar {
-        padding: 1rem;
+        padding: 1rem 2rem;
     }
 
-    .nav-links {
-        display: none;
+    .hero-title {
+        font-size: 3rem;
     }
 
-    /* TODO: Mobile Menu */
-    .manifesto-content h2 {
+    .collections,
+    .catalog-section,
+    .story-content,
+    .footer {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+    .checkout-grid {
+        grid-template-columns: 1fr;
+        /* Stack checkout on smaller screens */
+        gap: 3rem;
+    }
+
+    .checkout-summary-col {
+        order: -1;
+        /* Show summary first or maybe keep it below? Let's keep below for flow, but make it visible clearly */
+        order: 2;
+    }
+}
+
+/* Tablets & Mobile Landscape (max-width: 768px) */
+@media (max-width: 768px) {
+    :root {
+        --space-xl: 4rem;
+        --space-lg: 2rem;
+    }
+
+    /* Typography */
+    h1,
+    .hero-title {
         font-size: 2.5rem;
     }
 
-    .nav-links.active {
-        display: flex;
+    h2,
+    .manifesto-content h2 {
+        font-size: 2rem;
+    }
+
+    /* Navigation */
+    .nav-links {
+        display: none;
+        /* Hide desktop menu */
         flex-direction: column;
         position: fixed;
         top: 0;
@@ -522,11 +525,157 @@ button {
         justify-content: center;
         align-items: center;
         z-index: 999;
+        transition: transform 0.3s ease-in-out;
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+        /* Override display none */
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .nav-links a {
+        font-size: 1.5rem;
+        margin: 1rem 0;
     }
 
     .mobile-menu-btn {
-        display: block;
+        display: block !important;
+        /* Show hamburger */
         z-index: 1001;
+        font-size: 1.5rem;
+    }
+
+    /* Hero */
+    .hero {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+        padding-top: 70px;
+    }
+
+    .hero-content {
+        padding: 3rem 1.5rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-image-container {
+        width: 100%;
+        height: 50vh;
+    }
+
+    /* DNA Section */
+    .dna {
+        grid-template-columns: 1fr;
+        padding: 3rem 1.5rem;
+    }
+
+    .dna-block {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 2rem 0;
+    }
+
+    .dna-block:last-child {
+        border-bottom: none;
+    }
+
+    /* Collections & Grid */
+    .collections,
+    .catalog-section {
+        padding: 3rem 1.5rem;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        /* smaller cards on mobile */
+        gap: 1rem;
+    }
+
+    .product-card {
+        max-width: none;
+    }
+
+    /* Story */
+    .story {
+        flex-direction: column;
+    }
+
+    .story-content {
+        padding: 3rem 1.5rem;
+        order: 2;
+    }
+
+    .story-image {
+        height: 40vh;
+        order: 1;
+    }
+
+    /* Manifesto */
+    .manifesto {
+        padding: 3rem 1.5rem;
+        min-height: 40vh;
+    }
+
+    /* Footer */
+    .footer {
+        flex-direction: column;
+        padding: 3rem 1.5rem;
+        text-align: center;
+        align-items: center;
+    }
+
+    .footer-col {
+        width: 100%;
+    }
+
+    /* Cart Sidebar */
+    .cart-sidebar {
+        width: 100%;
+        /* Full width on mobile */
+    }
+
+    .cart-sidebar.open {
+        /* Intentionally empty/handled by global transform */
+    }
+
+    /* Checkout Layout */
+    .checkout-container {
+        padding: 1rem;
+    }
+
+    .checkout-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Mobile Small (max-width: 480px) */
+@media (max-width: 480px) {
+
+    h1,
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+        /* Single column for very small */
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
     }
 }
 
@@ -707,22 +856,24 @@ button {
 .cart-sidebar {
     position: fixed;
     top: 0;
-    right: -400px;
-    /* Hidden by default */
+    right: 0;
     width: 400px;
     max-width: 100%;
     height: 100vh;
     background: var(--color-card-bg);
     border-left: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 2500;
-    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateX(100%);
+    /* Move completely off-screen to the right */
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     flex-direction: column;
     padding: 2rem;
 }
 
 .cart-sidebar.open {
-    right: 0;
+    transform: translateX(0);
+    /* Bring back to position */
 }
 
 .cart-backdrop {
